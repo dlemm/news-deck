@@ -7,10 +7,41 @@ const parser = new Parser();
 const sevenDaysAgo = new Date();
 sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
+
 const feedSources = [
-  'https://www.smashingmagazine.com/feed/',
-  'https://developer.mozilla.org/en-US/blog/rss.xml',
-]
+  // Allgemeine Webentwicklung
+  "https://www.smashingmagazine.com/feed/",
+  "https://css-tricks.com/feed/",
+
+  // Frontend-Entwicklung
+  "https://cprss.s3.amazonaws.com/frontendfoc.us.xml",
+  "https://davidwalsh.name/feed",
+
+  // Backend-Entwicklung
+  "https://dev.to/feed",
+
+  // JavaScript
+  "https://javascriptweekly.com/rss",
+
+  // React
+  "https://reactjs.org/feed.xml",
+  "https://overreacted.io/rss.xml",
+
+  // TypeScript
+  "https://devblogs.microsoft.com/typescript/feed/",
+  "https://www.reddit.com/r/typescript/.rss",
+
+  // CSS
+  "https://css-weekly.com/rss/",
+  "https://css-tricks.com/feed/",
+
+  // YouTube Channels
+  "https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA",
+
+  // Tools and Libraries
+  "https://developer.mozilla.org/en-US/blog/rss.xml",
+
+];
 
 interface FeedItem {
   feed?: string;
@@ -47,14 +78,15 @@ const sortedFeedItems = feedItems.sort((a, b) => (b.date ?? new Date()).getTime(
 ---
 
 
-<Layout title="Welcome to Astro.">
+<Layout title="Ahoy tor 314rate's News Deck">
   <main>
   {sortedFeedItems.map(item => (
     <ul>
       <li>
         <a href={item.link}>{item.title}</a>
-        <p>{item.feed}</p>
-        <p>{item.date}</p>
+        <h2>{item.title}</h2>
+        <h4>{item.feed}</h4>
+        <p>Published: {item.date}</p>
       </li>
     </ul>
   ))}
