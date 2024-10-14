@@ -34,7 +34,9 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #314159;
+    background: #314159;
+    max-width: 1400px;
+    margin: 0 auto;
 	}
 	code {
 		font-family:
@@ -51,9 +53,15 @@ const { title } = Astro.props;
   ul {
     list-style-type: none;
     padding: 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    
+    @media (min-width: 975px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   li {
-    margin-bottom: 0.5rem;
     border: 1px solid #fff;
     padding: 1rem;
   }

@@ -80,16 +80,16 @@ const sortedFeedItems = feedItems.sort((a, b) => (b.date ?? new Date()).getTime(
 
 <Layout title="Ahoy at 314rate's News Deck">
   <main>
-  {sortedFeedItems.map(item => (
     <ul>
-      <li>
-        <a href={item.link}>{item.title}</a>
-        <h2>{item.title}</h2>
-        <h4>{item.feed}</h4>
-        <p>Published: {item.date}</p>
-      </li>
+      {sortedFeedItems.map(item => (
+        <li>
+          <a href={item.link}>{item.title}</a>
+          <h2>{item.title}</h2>
+          <h4>{item.feed}</h4>
+          <p>Published: {item.date}</p>
+        </li>
+      ))}
     </ul>
-  ))}
   </main>
 </Layout>
 
